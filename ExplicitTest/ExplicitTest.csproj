@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A26CBDAD-5612-4E80-AA84-BBD7B811B119}</ProjectGuid>
+    <ProjectGuid>{A68A8F18-4A23-4D7F-97E2-C654F15C4BDE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Boot</RootNamespace>
-    <AssemblyName>Boot</AssemblyName>
+    <RootNamespace>ExplicitTest</RootNamespace>
+    <AssemblyName>ExplicitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,9 +48,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColladaReader\ModelParser.csproj">
-      <Project>{7effaf94-74a4-4ecc-ad34-51f0f429016d}</Project>
-      <Name>ModelParser</Name>
+    <ProjectReference Include="..\Tests\Tests.csproj">
+      <Project>{adb8fbaa-fce0-4a1d-8553-12cd65baf257}</Project>
+      <Name>Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

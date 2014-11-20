@@ -18,6 +18,7 @@
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -83,6 +83,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ColladaPipelineExtension\ColladaPipelineExtension.csproj">
+      <Project>{E40E31C0-C1BE-4604-B0FC-89DFC4167B79}</Project>
+      <Name>ColladaPipelineExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ModelParser\ModelParser.csproj">
+      <Project>{7effaf94-74a4-4ecc-ad34-51f0f429016d}</Project>
+      <Name>ModelParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WindowsGameContent\WindowsGameContent.contentproj">
       <Name>WindowsGameContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

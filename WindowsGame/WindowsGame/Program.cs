@@ -10,7 +10,7 @@ namespace WindowsGame
         /// </summary>
         static void Main(string[] args)
         {
-            using (GameEngine game = new GameEngine())
+            using (var game = new GameEngine())
             {
                 game.Run();
             }

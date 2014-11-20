@@ -623,17 +623,17 @@ namespace Collada141
     [XmlRoot(Namespace = "http://www.collada.org/2005/11/COLLADASchema", IsNullable = false)]
     public class technique
     {
-        private XmlElement[] anyField;
+        //private XmlElement[] anyField;
 
         private string profileField;
 
         /// <remarks />
-        [XmlAnyElement]
-        public XmlElement[] Any
-        {
-            get { return anyField; }
-            set { anyField = value; }
-        }
+		//[XmlAnyElement]
+		//public XmlElement[] Any
+		//{
+		//	get { return anyField; }
+		//	set { anyField = value; }
+		//}
 
         /// <remarks />
         [XmlAttribute(DataType = "NMTOKEN")]

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Collada141;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -38,6 +39,7 @@ namespace WindowsGame
 			base.Initialize();
 		}
 
+
 		/// <summary>
 		/// LoadContent will be called once per game and is the place to load
 		/// all of your content.
@@ -48,6 +50,9 @@ namespace WindowsGame
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
+			//string info = typeof(ColladaReader).AssemblyQualifiedName;
+
+			var test = Content.Load<COLLADA>("untitled");
 		}
 
 		/// <summary>
@@ -86,6 +91,14 @@ namespace WindowsGame
 			// TODO: Add your drawing code here
 
 			base.Draw(gameTime);
+		}
+	}
+
+	public sealed class ColladaReader : ContentTypeReader<COLLADA>
+	{
+		protected override COLLADA Read(ContentReader input, COLLADA existingInstance)
+		{
+			return input.ReadRawObject<COLLADA>();
 		}
 	}
 }
