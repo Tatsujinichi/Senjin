@@ -11,8 +11,10 @@ namespace ExplicitTest
 	{
 		static void Main(string[] args)
 		{
-			var tester = new SerializeTest();
-			tester.TestSerialize();
+			//var tester = new SerializeTest();
+			//tester.TestSerialize();
+
+
 		}
 	}
 }
