@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoreTests\SerialCommandQueueTests.cs" />
+    <Compile Include="CoreTests\TestClasses.cs" />
     <Compile Include="CoreTests\UndoableCommandStackTests.cs" />
     <Compile Include="ModelParser\BinaryHelperTests.cs" />
     <Compile Include="ModelParser\SerializeTest.cs" />

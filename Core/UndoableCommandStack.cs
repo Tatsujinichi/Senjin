@@ -21,9 +21,18 @@ namespace Core
 
 		public IUndoableCommand Pop()
 		{
-			IUndoableCommand first = _commands.First.Value;
-			_commands.RemoveFirst();
-			return first;
+			if (_commands.First != null)
+			{
+				IUndoableCommand first = _commands.First.Value;
+				_commands.RemoveFirst();
+				return first;
+			}
+			return EmptyCommand.GetEmptyCommand();
+		}
+
+		public int MaxDepth 
+		{
+			get { return _maxDepth; }
 		}
 
 		public void Clear()

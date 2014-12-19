@@ -1,5 +1,4 @@
-﻿using System;
-using Core;
+﻿using Core;
 using NUnit.Framework;
 
 namespace Tests.CoreTests
@@ -7,149 +6,57 @@ namespace Tests.CoreTests
 	[TestFixture]
 	public sealed class UndoableCommandStackTests
 	{
+		private UndoableCommandStack _undoStack;
+
 		[SetUp]
 		public void Setup()
 		{
-	
+			_undoStack = new UndoableCommandStack(3);
 		}
 
 		[Test]
-		public void PushTest()
+		public void PushPopTest()
 		{
-			
-		}
+			var light = new Light();
+			var command0 = new OnCommand(light);
+			var command1 = new OnCommand(light);
+			var command2 = new OnCommand(light);
+			var command3 = new OnCommand(light);
 
-		[Test]
-		public void PopTest()
-		{
-			
+			_undoStack.Push(command0);
+			_undoStack.Push(command1);
+			_undoStack.Push(command2);
+			_undoStack.Push(command3);
+
+			var retCommand3 = _undoStack.Pop();
+			var retCommand2 = _undoStack.Pop();
+			var retCommand1 = _undoStack.Pop();
+			var retCommand0 = _undoStack.Pop();
+
+			Assert.AreEqual(retCommand0, EmptyCommand.GetEmptyCommand());
+			Assert.AreEqual(command1, retCommand1);
+			Assert.AreEqual(command2, retCommand2);
+			Assert.AreEqual(command3, retCommand3);
 		}
 
 		[Test]
 		public void ClearTest()
 		{
-			
-		}
+			var light = new Light();
+			var command0 = new OnCommand(light);
+			var command1 = new OnCommand(light);
+			var command2 = new OnCommand(light);
+			var command3 = new OnCommand(light);
 
-		private class LightSwitch
-		{
-			private readonly IUndoableCommand _onCommand;
-			private readonly IUndoableCommand _offCommand;
-			private readonly UndoableCommandStack _undoCommandStack;
+			_undoStack.Push(command0);
+			_undoStack.Push(command1);
+			_undoStack.Push(command2);
+			_undoStack.Push(command3);
 
-			public LightSwitch(IUndoableCommand onCommand, IUndoableCommand offCommand)
-			{
-				_onCommand = onCommand;
-				_offCommand = offCommand;
-				_undoCommandStack = new UndoableCommandStack(4);
-			}
+			_undoStack.Clear();
 
-			public void TurnSwitchOn()
-			{
-				_onCommand.Execute();
-			}
-
-			public void TurnSwitchOff()
-			{
-				_offCommand.Execute();
-			}
-
-			public void Undo()
-			{
-				IUndoableCommand lastCommand = _undoCommandStack.Pop();
-				lastCommand.Undo();
-			}
-
-			public void Reset()
-			{
-				_offCommand.Execute();
-				_undoCommandStack.Clear();
-			}
-		}
-
-		private sealed class OnCommand : IUndoableCommand
-		{
-			private readonly ISwitchable _target;
-			private bool _previousState;
-
-			public OnCommand(ISwitchable target)
-			{
-				_target = target;
-			}
-
-			public void Execute()
-			{
-				_previousState = _target.GetState();
-				_target.On();
-			}
-
-			public void Undo()
-			{
-				if (_previousState == false)
-				{
-					_target.Off();
-				}
-				else
-				{
-					_target.On();
-				}
-			}
-		}
-
-		private sealed class OffCommand : IUndoableCommand
-		{
-			private readonly ISwitchable _target;
-			private bool _previousState;
-
-			public OffCommand(ISwitchable target)
-			{
-				_target = target;
-			}
-
-			public void Execute()
-			{
-				_previousState = _target.GetState();
-				_target.Off();
-			}
-
-			public void Undo()
-			{
-				if (_previousState == true)
-				{
-					_target.Off();
-				}
-				else
-				{
-					_target.On();
-				}
-			}
-		}
-
-		private interface ISwitchable
-		{
-			void On();
-			void Off();
-			bool GetState();
-		}
-
-		private sealed class Light : ISwitchable
-		{
-			private bool _isOn;
-
-			public bool GetState()
-			{
-				return _isOn;
-			}
-
-			public void On()
-			{
-				_isOn = true;
-			}
-
-			public void Off()
-			{
-				_isOn = false;
-			}
+			var ret = _undoStack.Pop();
+			Assert.AreEqual(ret, EmptyCommand.GetEmptyCommand());
 		}
 	}
 }
