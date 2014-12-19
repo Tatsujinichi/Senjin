@@ -42,6 +42,32 @@
     <Compile Include="GameEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Audio\Audio.csproj">
+      <Project>{151477ba-5a4d-4c7f-88d8-47a49a9f7b01}</Project>
+      <Name>Audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{18984bdf-4762-4061-b272-19fe5f54c7c9}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Input\Input.csproj">
+      <Project>{89BC48F8-E5A1-42AB-8DDF-BB816A70C5C4}</Project>
+      <Name>Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Loader\Loader.csproj">
+      <Project>{a9a2d87d-c353-44b0-90e3-581c2a2f830d}</Project>
+      <Name>Loader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.csproj">
+      <Project>{61686e4a-1c3c-48ce-8fe5-564149612454}</Project>
+      <Name>Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Visual\Visual.csproj">
+      <Project>{b85d5a8d-378c-429e-bb91-5ad48ad096f6}</Project>
+      <Name>Visual</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

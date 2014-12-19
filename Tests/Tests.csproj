@@ -59,9 +59,9 @@
       <Project>{18984bdf-4762-4061-b272-19fe5f54c7c9}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelParser\ModelParser.csproj">
-      <Project>{7effaf94-74a4-4ecc-ad34-51f0f429016d}</Project>
-      <Name>ModelParser</Name>
+    <ProjectReference Include="..\Loader\Loader.csproj">
+      <Project>{A9A2D87D-C353-44B0-90E3-581C2A2F830D}</Project>
+      <Name>Loader</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,12 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using Collada141;
-using ModelParser;
+using Core;
 using NUnit.Framework;
 
-
-namespace Tests
+namespace Tests.ModelParser
 {
 	[TestFixture]
 	public class XmlHelperTests

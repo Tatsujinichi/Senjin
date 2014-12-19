@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Collada141;
-using ModelParser;
+using Core;
 using NUnit.Framework;
 
 namespace Tests.ModelParser
