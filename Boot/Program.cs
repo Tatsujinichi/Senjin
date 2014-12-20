@@ -6,7 +6,7 @@ using Input;
 using Network;
 using Visual;
 
-namespace ExplicitTest
+namespace Boot
 {
 	internal static class Program
 	{
